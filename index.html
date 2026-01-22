@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Color Tiles Solver</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background canvas for subtle global motion/flowers -->
+    <canvas id="background-canvas"></canvas>
+
+    <div class="container">
+        <h1>Color Tiles Solver</h1>
+
+        <!-- Grid Size Selector -->
+        <div class="grid-size-selector card">
+            <label for="grid-size-input">Select Grid Size:</label>
+            <input type="number" id="grid-size-input" min="3" max="9" value="5">
+            <button onclick="initGridFromPage()" class="action-btn">Start / Reset</button>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls card">
+            <div id="color-buttons">
+                <button onclick="setColor('red')" class="color-btn red"></button>
+                <button onclick="setColor('blue')" class="color-btn blue"></button>
+                <button onclick="setColor('green')" class="color-btn green"></button>
+                <button onclick="setColor('yellow')" class="color-btn yellow"></button>
+                <button onclick="setColor('purple')" class="color-btn purple"></button>
+                <button onclick="setColor('orange')" class="color-btn orange"></button>
+                <button onclick="setColor('teal')" class="color-btn teal"></button>
+                <button onclick="setColor('grey')" class="color-btn grey"></button>
+                <button onclick="setColor('pink')" class="color-btn pink"></button>
+                <button onclick="setColor('GRASS')" class="color-btn grass">🌿</button>
+                <button onclick="setColor(null)" class="color-btn empty">Clear</button>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="solve()" class="action-btn">Solve</button>
+                <button onclick="clearGrid()" class="action-btn">Clear Grid</button>
+            </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="grid-container" class="card"></div>
+
+        <!-- Solution Panel -->
+        <div id="solution-panel" class="card">
+            <h2>Solution:</h2>
+            <div id="solution-display"></div>
+        </div>
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>

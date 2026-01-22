@@ -1,0 +1,191 @@
+/* Base styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #f2f4f7;
+}
+
+/* Canvas for subtle floating flowers */
+#background-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+
+/* Main container */
+.container {
+    max-width: 900px;
+    width: 90%;
+    padding: 30px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Cards for controls, grid, solution */
+.card {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Grid size input */
+.grid-size-selector input {
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Controls layout */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Color buttons */
+#color-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* Color mapping */
+.color-btn.red { background: #e74c3c; }
+.color-btn.blue { background: #3498db; }
+.color-btn.green { background: #2ecc71; }
+.color-btn.yellow { background: #f1c40f; }
+.color-btn.purple { background: #9b59b6; }
+.color-btn.orange { background: #e67e22; }
+.color-btn.teal { background: #1abc9c; }
+.color-btn.grey { background: #7f8c8d; }
+.color-btn.pink { background: #ff6b81; }
+.color-btn.grass { background: #a8e6cf; font-size: 18px; }
+.color-btn.empty { background: #ecf0f1; }
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Grid container */
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), 50px);
+    gap: 0px; 
+    width: max-content;
+    margin: 20px auto;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tiles (white background + subtle outline) */
+.tile {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(0,0,0,0.15);
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+/* Flower elements */
+.flower {
+    pointer-events: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #fff;
+    position: absolute;
+    animation: floatFlower 5s infinite alternate;
+    opacity: 0.3;
+}
+
+@keyframes floatFlower {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+/* Solution panel */
+#solution-panel h2 {
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#solution-display {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 24px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container { padding: 20px; }
+    .tile { width: 40px; height: 40px; font-size: 16px; }
+    .action-btn { padding: 8px 16px; font-size: 14px; }
+}
