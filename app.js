@@ -1,4 +1,4 @@
-// Color Tiles Solver:
+// Color Tiles Solver: game-faithful presentation + original BFS solver.
 let gridSize = 5;
 let grid = [];
 let currentColor = 'red';
@@ -9,7 +9,7 @@ const DIRECTIONS = { Up:[-1,0], Down:[1,0], Left:[0,-1], Right:[0,1] };
 const OPPOSITE = { Up:'Down', Down:'Up', Left:'Right', Right:'Left' };
 let undoStack = [];
 let isSolving = false;
-const SOLVER_TIMEOUT_MS = 15000;
+const SOLVER_TIMEOUT_MS = 30000;
 const SOLVER_YIELD_EVERY = 750;
 
 const COLOR_INFO = {
@@ -271,7 +271,7 @@ async function solve(){
     renderSolution(result);
 
     if(result.status==='timeout'){
-      window.alert('No solution found within 15 seconds. Check that the blocks are in the correct positions, that each color has exactly 4 blocks, and that the obstacles are entered correctly.');
+      window.alert('No solution found within 30 seconds. Check that the blocks are in the correct positions, that each color has exactly 4 blocks, and that the obstacles are entered correctly.');
     }else if(result.status==='unsolved'){
       window.alert('No solution found. Check that the blocks are in the correct positions and that the obstacles were entered correctly.');
     }
